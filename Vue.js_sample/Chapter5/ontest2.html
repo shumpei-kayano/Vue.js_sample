@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>クリックしたら、2回目は押せなくなるいいねボタンの例</h2>
+		<div id="app">
+			<!-- v-bindで属性を指定 -->
+			<!-- v-onでイベントとつなぐ -->
+			<button value="いいね" v-bind:disabled="isClick"
+				v-on:click="oneClick">いいね</button>
+		</div>
+
+		<script>
+			// JSのalert
+			function iine() {
+				alert("いいね");
+			}
+			//Vueインスタンス
+			new Vue({
+				el: '#app',
+				data: {
+					isClick: false //最初disabledはfalseに設定しておく
+				},
+				//clickのイベントハンドラでoneClickが呼ばれる
+				methods: {
+					oneClick: function() {
+						this.isClick = true; //disabledをtrueに設定する
+						iine(); //function iineの呼び出し
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

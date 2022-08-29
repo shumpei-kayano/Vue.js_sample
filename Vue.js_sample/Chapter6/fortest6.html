@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>ボタンをクリックしたら、ソートする例</h2>
+		<div id="app">
+			<ul>
+				<li v-for="item in myArray"> {{ item }}</li>
+			</ul>
+			<button v-on:click="sortData(myArray)">ソートする</button><br>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					myArray: ['4','1','5','2','3']
+				},
+				/*
+				sortメソッドは文字列に変換されてからソートされる
+				そのため、文字列ならsort()でOKだが、数値をソートしたい場合はコールバック関数がいる
+				*/
+
+				/*コールバック関数では 2 つの要素の値を引数に取ります。そして次のルールに従って並び替えを行います。
+				・コールバック関数が 0 未満の値(例えば -1 )を返した場合、一つ目の要素を二つ目の要素より小さいインデックスにする
+				・コールバック関数が 0 を返した場合はそのまま
+				・コールバック関数が 0 より大きい値(例えば 1 )を返した場合、二つ目の要素を一つ目の要素より小さいインデックスにする*/
+				methods: {
+					sortData: function(listdata) {
+						listdata.sort(function(a,b) {
+							return (a < b ? -1 : 1);
+						});
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

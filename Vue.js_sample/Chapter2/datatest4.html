@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>オブジェクトデータを表示する例</h2>
+		<div id="app">
+			<!-- オブジェクトデータを表示する例 -->
+			<p>{{ myTea }}</p>
+			<!-- 表示は 配列名.キー で指定する -->
+			<p>{{ myTea.name }} ¥{{ myTea.price }}</p>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					//連想配列のイメージ キー:値
+					myTea:{name:'ダージリン', price:600}
+				}
+			})
+		</script>
+	</body>
+</html>

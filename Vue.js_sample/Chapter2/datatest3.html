@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>配列の値を表示する例</h2>
+		<div id="app">
+			<!-- 配列の値を表示する例 -->
+			<p>{{ myArray }}</p>
+			<p>{{ myArray[0] }}</p>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					//配列も 変数名:値 の形
+					myArray:['ダージリン','アールグレイ','セイロン']
+				}
+			})
+		</script>
+	</body>
+</html>
