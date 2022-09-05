@@ -10,7 +10,7 @@
 	<body>
 		<h2>エンターキーを押したら、アラートを表示する例</h2>
 		<div id="app">
-			<!-- enterキーが入力された時 -->
+			<!-- v-onでエンターキーを押したら、アラートを表示する例 -->
 			<!-- v-on:keyup.キー修飾子="メソッド名" -->
 			<!-- v-modelで入力とVueインスタンスをつなぐ -->
 			<input v-on:keyup.enter="showAlert" v-model="myText">
@@ -19,6 +19,10 @@
 		</div>
 
 		<script>
+			/* キー修飾子
+				.enter .down .tab .left .delete .right
+				.esc .48~.57(0~9) .space .65~.90(A~Z) .up
+			*/
 			new Vue({
 				el: '#app',
 				data: {
