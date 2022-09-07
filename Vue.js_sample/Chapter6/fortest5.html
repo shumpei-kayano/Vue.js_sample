@@ -28,17 +28,19 @@
 				},
 				methods: {
 					addLast: function(){
-						// 配列に要素の追加は array.push(追加する要素)
+						// 配列の末尾へ要素の追加は 配列名.push(追加する要素)
 						this.myArray.push("［末尾に追加］");
 					},
 					addObj: function(index) {
-						// array.splice(開始番号, 削除する要素数, 追加する要素)
+						// 配列名.splice(開始番号, 削除する要素数, 追加する要素)
 						this.myArray.splice(index, 0, '［追加］')
 					},
 					changeObj: function(index) {
+						// 配列名.splice(開始番号, 削除する要素数, 追加する要素)
 						this.myArray.splice(index, 1, '［変更］')
 					},
 					deleteObj: function(index) {
+						//配列名.splice(開始番号, 削除する要素数)
 						this.myArray.splice(index, 1);
 					}
 				}
