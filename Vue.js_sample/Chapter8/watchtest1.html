@@ -22,14 +22,14 @@
 					inputText: '今日は、天気です。'
 				},
 				watch: {
-					// watchで入力文字を監視して、禁止文字が入力されたらアラートを出す例
+					// watchで入力文字(inputText)を監視して、禁止文字が入力されたらアラートを出す例
 					inputText: function(){
-						// 文字列.indexOf(検索文字列 [, 開始インデックス])
+						// 文字列.indexOf(検索文字列)
 						var pos = this.inputText.indexOf(this.forbiddenText);
 						if (pos >= 0) {
 							alert(this.forbiddenText + "は、入力できません。");
 							// 入力文字列から禁止文字を削除する
-							// 文字列.substring(開始インデックス[, 文字数]):対象の文字列に対して開始位置と文字数を指定して部分文字列を取得します
+							// 文字列.subst(開始インデックス[, 文字数]):対象の文字列に対して開始位置と文字数を指定して部分文字列を取得する
 							this.inputText = this.inputText.substr(0,pos);
 						}
 					}
