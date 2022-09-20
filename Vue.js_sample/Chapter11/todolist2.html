@@ -16,8 +16,9 @@
 					<span v-bind:class="{donestyle:todo.done}">{{todo.text}}</span>
 				</label>
 			</div>
-			
+			<!-- todoの追加機能を追加 -->
 			<input type="text" v-model.trim="addtext" v-on:keyup.enter="addToDo" placeholder="すること">
+			<!-- todoの削除機能を追加 -->
 			<p><button v-on:click="cleanToDo">処理済みを削除</button></p>
 			<p>{{ remaining }} / {{ todos.length }}件処理
 		</div>
