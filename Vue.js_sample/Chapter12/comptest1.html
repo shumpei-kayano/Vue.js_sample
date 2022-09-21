@@ -19,14 +19,17 @@
 
 		<script>
 			// コンポーネントを作って表示する例
+			// コンポーネントのオブジェクトを作成（パスカルケース）
 			var MyComponent = {
-				// template:HTML部分
+				// templateオプションでHTML部分を記述する
 				template: '<p class="my-comp">Hello</p>'
 			}
 			new Vue({
 				el: '#app',
+				// conponentsオプションに記述して実装する
 				components: {
-					// コンポーネントのタグ名 : コンポーネントのオブジェクト名
+					// コンポーネントのタグ名 HTMLなのでケバブケース
+					// コンポーネントのオブジェクト名 Vueなのでパスカルケース
 					'my-component': MyComponent
 				}
 			})
