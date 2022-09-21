@@ -11,18 +11,28 @@
 		<h2>JSONを読み込む例（JavaScript）</h2>
 		<input type="file" id="loader">
 		<script>
+			// DOMでinputのオブジェクトをobj1に取得
 			var obj1 = document.getElementById("loader");
+			// addEventListenerでイベントに対して関数を実行できる
+			// addEventListener("種類", 関数, false) Vueで言うv-onでmethod実行のようなイメージ
 			obj1.addEventListener("change", loadFile,false);
+			// eはinputのオブジェクトのイベント情報
 			function loadFile(e) {
+				console.log(e);
+				// eオブジェクトのtarget.files[0]を取得
 				file = e.target.files[0]
 				if (file) {
+					// FileReaderインスタンス生成
 					var reader = new FileReader();
+					// onloadはFileReaderのイベントを正常読み込みのときに実行される
 					reader.onload = function(e){
 						console.log(">>>"+e.target.result);
 						json = JSON.parse(e.target.result);
 						console.log(">>>"+ json[0].title);
 						console.log(">>>"+ json[0].body);
 					}
+					// readAsText:ファイルを文字列をして読み込む
+					// ここで正常読み込みがOKだとonloadが実行される
 					reader.readAsText(file);
 				}
 			}
